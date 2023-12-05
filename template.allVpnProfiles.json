@@ -1,0 +1,15 @@
+[
+  {
+      "id": "ec6e08e1-4365-4ce1-8a23-e6643daa7802",
+      "name": "test-test",
+      "enabled": true,
+      "address": "10.8.0.2",
+      "publicKey": "__________________________________________",
+      "createdAt": "2022-04-20T14:53:52.199Z",
+      "updatedAt": "2023-07-13T18:32:17.779Z",
+      "persistentKeepalive": "off",
+      "latestHandshakeAt": "2023-09-10T07:54:59.000Z",
+      "transferRx": 8628562448,
+      "transferTx": 88193352040
+  }
+]
