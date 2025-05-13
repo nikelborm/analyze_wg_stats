@@ -1,4 +1,5 @@
 const outputAnonymizedData = process.env.SHOULD_OUTPUT_ANONYMIZED_DATA === 'true';
+const monthlyCostOfServer = 400;
 
 console.log('Output anonymized data:', outputAnonymizedData);
 
@@ -35,9 +36,9 @@ const groupBy = (values, keyFinder) => {
     const key = typeof keyFinder === 'function' ? keyFinder(b) : b[keyFinder];
 
     // aggregate values based on the keys
-    if(!a[key]){
+    if (!a[key]) {
       a[key] = [b];
-    }else{
+    } else {
       a[key] = [...a[key], b];
     }
 
@@ -117,7 +118,7 @@ let activeVpnProfiles = allVpnProfiles
     return profile;
   });
 
-if(outputAnonymizedData) {
+if (outputAnonymizedData) {
   activeVpnProfiles = activeVpnProfiles.map((profile) => {
     const { userName } = profile;
     let anonymizedUserName = userNameToAnonymizedUserNameMap.get(userName);
@@ -133,8 +134,7 @@ if(outputAnonymizedData) {
   // console.log(userNameToAnonymizedUserNameMap);
 }
 
-const mothlyCostOfServer = 400;
-const quarterCostOfServer = mothlyCostOfServer * 3;
+const quarterCostOfServer = monthlyCostOfServer * 3;
 
 const uniqueUserNames = new Set(activeVpnProfiles.map(({ userName }) => userName));
 const amountOfUsers = uniqueUserNames.size;
@@ -201,11 +201,11 @@ const usersToTheirRelativeTransfers = Object
 console.log('amount of all vpn profiles: ', allVpnProfiles.length);
 console.log('amount of active vpn profiles: ', activeVpnProfiles.length);
 console.log('amount of deleted vpn profiles: ', allVpnProfiles.length - activeVpnProfiles.length);
-console.log('\nmothly cost of server: ', mothlyCostOfServer);
+console.log('\nmothly cost of server: ', monthlyCostOfServer);
 console.log('quarter cost of server: ', quarterCostOfServer);
 console.log('\nCurrent amount of users: ', amountOfUsers);
 console.log('Quarterly payment of user where everybody equal: ', quarterlyPaymentOfUserWhereEverybodyEqual);
-console.log('\nTotal transfer of all users (PB): ', round(totalServerTransfer / 1024 ));
+console.log('\nTotal transfer of all users (PB): ', round(totalServerTransfer / 1024));
 console.log('Total estimated transfer of all users in last quarter (PB): ', round(totalEstimatedServerTransferInLastQuarter / 1024));
 
 console.log('\nUsers with their total and last quarter transfers (highest total first):');
