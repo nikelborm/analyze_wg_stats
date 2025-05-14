@@ -14,10 +14,10 @@ Script requires file `allVpnProfiles.json` to be present. It was given me somewh
 exported from some kind of WireGuard web admin panel. If you know what it was,
 write me.
 
-Also script expects you to set `monthlyCostOfServer` constant.
+If you don't, you can run `cp template.allVpnProfiles.json allVpnProfiles.json`
+and enter the data yourself.
 
-If you don't know what it was, you can
-`cp template.allVpnProfiles.json allVpnProfiles.json` and enter the data yourself.
+Also script expects you to set `monthlyCostOfServer` constant.
 
 ## Outputs
 
